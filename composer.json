@@ -1,0 +1,39 @@
+{
+    "name": "slowlyo/owl-wechat-user",
+    "alias": "微信用户管理",
+    "description": "OwlAdmin扩展: 微信用户管理, 包含微信小程序登录, 后台会员管理",
+    "type": "library",
+    "keywords": [
+        "owl-admin",
+        "extension",
+        "wechat",
+        "user"
+    ],
+    "homepage": "https://gitee.com/slowlyo/owl-wechat-user",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "slowlyo",
+            "email": "slowlyo_email@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "slowlyo/owl-admin": "*",
+        "overtrue/laravel-wechat": "6.*",
+        "jiannei/laravel-response": "^5.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Slowlyo\\OwlWechatUser\\": "src/"
+        }
+    },
+    "extra": {
+        "owl-admin": "Slowlyo\\OwlWechatUser\\OwlWechatUserServiceProvider",
+        "laravel": {
+            "providers": [
+                "Slowlyo\\OwlWechatUser\\OwlWechatUserServiceProvider"
+            ]
+        }
+    }
+}
