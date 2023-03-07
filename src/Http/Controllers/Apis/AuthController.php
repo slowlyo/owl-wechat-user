@@ -53,7 +53,7 @@ class AuthController extends Controller
         event(new UserLoggedInEvent($user, $request));
 
         return $this->success([
-            'token' => $user->createToken('token')->plainTextToken,
+            'token' => $user->createToken($request->code)->plainTextToken,
             'user'  => $this->resourceClass()::make($user),
         ]);
     }
