@@ -57,13 +57,12 @@ use ExceptionTrait;
 ```php
 
 use Jiannei\Response\Laravel\Support\Format;
-use Jiannei\Response\Laravel\Support\Traits\ExceptionTrait;
 use Jiannei\Response\Laravel\Support\Traits\JsonResponseTrait;
 
 class Controller extends BaseController
 {
-    // use 这两个 trait
-    use ExceptionTrait,JsonResponseTrait
+    // use 这个 trait
+    use JsonResponseTrait
 
     // 添加 formatter 属性
     protected $formatter;
