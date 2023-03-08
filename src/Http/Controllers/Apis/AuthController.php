@@ -59,6 +59,43 @@ class AuthController extends Controller
     }
 
     /**
+     * 微信小程序静默登录
+     *
+     * @param Request $request
+     *
+     * @return mixed
+     */
+    public function miniProgramSilentLogin(Request $request)
+    {
+        $service = $this->userService()::make();
+
+        // 解密用户信息
+        $data = $service->decryptMP($request->code);
+
+        if ($service->hasError()) {
+            $this->fail($service->getError());
+        }
+
+        // 获取用户信息
+        $user = $service->getUserByWechatMP($data['openid']);
+
+        if (!$user) {
+            $this->errorNotFound('用户不存在');
+        }
+
+        $user->load('oauthMP');
+        $user->refresh();
+
+        // 用户登录事件
+        event(new UserLoggedInEvent($user, $request));
+
+        return $this->success([
+            'token' => $user->createToken($request->code)->plainTextToken,
+            'user'  => $this->resourceClass()::make($user),
+        ]);
+    }
+
+    /**
      * 获取用户信息
      *
      * @param Request $request

@@ -43,6 +43,7 @@ class OwlWechatUserServiceProvider extends ServiceProvider
     public function loadRoute()
     {
         Route::any('/api/wechat/mini_program_login', [AuthController::class, 'miniProgramLogin']);
+        Route::any('/api/wechat/mini_program_silent_login', [AuthController::class, 'miniProgramSilentLogin']);
         Route::middleware('auth:sanctum')->any('/api/wechat/user', [AuthController::class, 'user']);
         Route::middleware('auth:sanctum')->post('/api/wechat/user', [AuthController::class, 'saveInfo']);
     }
