@@ -82,7 +82,7 @@ class Controller extends BaseController
 ## 注意
 
 > 本扩展有第三方依赖, 无法使用 `zip` 方式安装, 请使用 `composer` 安装 <br>
-> 卸载扩展会不会删除 `users` `user_oauth` 表, 请手动处理
+> 卸载扩展不会删除 `users` `user_oauth` 表, 请手动处理
 
 ***
 ***
