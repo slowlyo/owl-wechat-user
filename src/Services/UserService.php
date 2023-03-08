@@ -41,6 +41,10 @@ class UserService extends AdminService
      */
     public function decryptMP($code)
     {
+        if(!$code){
+            return $this->setError('code不能为空！');
+        }
+
         try {
             $data = $this->app->auth->session($code);
         } catch (\Exception $e) {
