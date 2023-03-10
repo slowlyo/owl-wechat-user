@@ -21,15 +21,9 @@ class OwlWechatUserServiceProvider extends ServiceProvider
 
     public function register()
     {
+        parent::register();
+
         $this->loadRoute();
-    }
-
-    public function init()
-    {
-        parent::init();
-
-        //
-
     }
 
     public function uninstall()
