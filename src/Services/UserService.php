@@ -191,7 +191,7 @@ class UserService extends AdminService
         return true;
     }
 
-    public function list()
+    public function listQuery()
     {
         $nickname = request()->input('nickname');
         $phone    = request()->input('phone');
@@ -203,11 +203,6 @@ class UserService extends AdminService
                 return $query->whereHas('oauthMP', fn($query) => $query->where('nickname', 'like', "%{$nickname}%"));
             })
             ->orderByDesc($model->getUpdatedAtColumn() ?? $model->getKeyName());
-
-        $items = (clone $query)->paginate(request()->input('perPage', 20))->items();
-        $total = (clone $query)->count();
-
-        return compact('items', 'total');
     }
 
     public function getDetail($id)
