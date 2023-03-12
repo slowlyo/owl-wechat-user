@@ -41,7 +41,7 @@ class UserService extends AdminService
      */
     public function decryptMP($code)
     {
-        if(!$code){
+        if (!$code) {
             return $this->setError('code不能为空！');
         }
 
@@ -197,7 +197,8 @@ class UserService extends AdminService
         $phone    = request()->input('phone');
 
         $model = $this->getModel();
-        $query = $this->query()->with('oauthMP')
+
+        return $this->query()->with('oauthMP')
             ->when($phone, fn($query) => $query->where('phone', 'like', "%{$phone}%"))
             ->when($nickname, function ($query) use ($nickname, $model) {
                 return $query->whereHas('oauthMP', fn($query) => $query->where('nickname', 'like', "%{$nickname}%"));
