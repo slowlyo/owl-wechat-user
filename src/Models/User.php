@@ -30,6 +30,6 @@ class User extends Authenticatable
 
     public function oauthMP()
     {
-        return $this->hasOne($this->userOAuthModelClass())->source(UserOAuthDefine::SOURCE_WECHAT_MP);
+        return $this->hasOne($this->userOAuthModelClass())->where('source', UserOAuthDefine::SOURCE_WECHAT_MP);
     }
 }
