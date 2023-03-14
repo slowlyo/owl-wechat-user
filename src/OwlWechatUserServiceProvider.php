@@ -50,6 +50,7 @@ class OwlWechatUserServiceProvider extends ServiceProvider
             'user_model_class'       => 'Slowlyo\OwlWechatUser\Models\User',
             'user_oauth_model_class' => 'Slowlyo\OwlWechatUser\Models\UserOAuth',
             'resource_class'         => 'Slowlyo\OwlWechatUser\Http\Resources\UserMPResource',
+            'controller_class'       => 'Slowlyo\OwlWechatUser\Http\Controllers\OwlWechatUserController',
         ];
 
         $resetBtn = VanillaAction::make()
@@ -75,6 +76,7 @@ class OwlWechatUserServiceProvider extends ServiceProvider
             TextControl::make()->name('user_model_class')->label('User Model Class')->required(true),
             TextControl::make()->name('user_oauth_model_class')->label('User OAuth Model Class')->required(true),
             TextControl::make()->name('resource_class')->label('Resource Class')->required(true),
+            TextControl::make()->name('controller_class')->label('Controller Class')->required(true),
         ]);
     }
 }
