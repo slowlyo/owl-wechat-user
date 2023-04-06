@@ -16,7 +16,6 @@ class OwlWechatUserController extends AdminController
 
     public function __construct()
     {
-        $this->pageTitle   = '会员管理';
         $this->serviceName = OwlWechatUserServiceProvider::setting('service_class', UserService::class);
 
         parent::__construct();
