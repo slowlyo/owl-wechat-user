@@ -15,7 +15,7 @@ class OwlWechatUserServiceProvider extends ServiceProvider
         [
             'title' => '会员管理',
             'url'   => '/users',
-            'icon'  => 'fa fa-users',
+            'icon'  => 'ph:user-list',
         ],
     ];
 
