@@ -20,7 +20,7 @@ class UserService extends AdminService
 
     public function __construct()
     {
-        $this->app       = app('wechat.mini_program');
+        $this->app       = app(\EasyWeChat\MiniProgram\Application::class);
         $this->modelName = $this->userModel();
     }
 
